@@ -1,0 +1,75 @@
+docker run hello-world
+
+override
+
+docker run busybox echo hi there
+
+docker ps
+
+docker ps --all
+
+docker create + docker start = docker run
+
+docker stop containerid
+docker kill containerid
+docker system prune
+
+docker start busybox hi there
+docker start containerid
+docker logs containerid
+
+docker exec -it containerid command
+
+docker run -it containerid command
+
+dockerfile -> docker cli -> docker server -> usable image
+###################
+dockerfile: 
+#use an existing docker image as a base
+FROM alpine
+
+#dowload and install dependency
+RUN apk add --update gcc
+RUN apk add --update redis
+
+#as a container
+CMD ["redis-server"]
+############################
+
+
+
+docker build .
+docker build -t recepdirek/redis:latest .
+
+
+################
+
+Dockerfile: 
+#base image
+FROM node:alpine
+
+#dependencies
+COPY ./ ./
+RUN npm install
+
+#defaul command
+CMD ["npm","start"]
+###################
+
+
+docker run -p port_on_localhost:port_on_container imageid
+
+docker-compose up
+docker-compose down
+
+
+
+
+
+
+
+
+
+
+
+
